@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Vega Scaffold</title>
+    <script src="http://vega.github.io/vega-editor/vendor/d3.min.js"></script>
+    <script src="http://vega.github.io/vega-editor/vendor/d3.geo.projection.min.js"></script>
+    <script src="http://vega.github.io/vega-editor/vendor/topojson.js"></script>
+    <script src="http://vega.github.io/vega-editor/vendor/d3.layout.cloud.js"></script>
+    <script src="http://vega.github.io/vega/vega.min.js"></script>
+    <script src="http://vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+  </body>
+<script type="text/javascript">
+d3.json("data/example-embed.json", function(data) {
+  vg.embed('#vis', data, function(view, vega_spec) {
+  // Callback receiving the View instance and parsed Vega spec...
+  // The View resides under the '#vis' element
+});
+})
+
+</script>
+</html>

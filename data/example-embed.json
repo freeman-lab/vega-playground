@@ -1,0 +1,45 @@
+{
+  "parameters": [
+    { 
+      "signal": "rotate", "type": "range",
+      "value": 0, "min": -360, "max": 360,
+      "rewrite": ["data[0].transform[0].rotate"]
+    }
+  ],
+  "spec": {
+    "width": 800,
+    "height": 500,
+    "padding": 0,
+    "data": [
+      {
+        "name": "world",
+        "url": "data/world-110m.json",
+        "format": {"type": "topojson", "feature": "countries"},
+        "transform": [{
+          "type": "geopath",
+          "projection": "winkel3",
+          "scale": 170,
+          "translate": [400, 250]
+        }]
+      }
+    ],
+    "marks": [
+      {
+        "type": "path",
+        "from": {"data": "world"},
+        "properties": {
+          "enter": {
+            "stroke": {"value": "#fff"}
+          },
+          "update": {
+            "path": {"field": "layout_path"},
+            "fill": {"value": "#ccc"}
+          },
+          "hover": {
+            "fill": {"value": "pink"}
+          }
+        }
+      }
+    ]
+  }
+}
